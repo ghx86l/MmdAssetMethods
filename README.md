@@ -1,30 +1,15 @@
-# MikuMikuMethods
+# MmdAssetMethods
 C#向けMMD関連データ読込ライブラリ
-
-## 構成
-### /MmdAssetMethods
-ライブラリ本体
 
 ## 機能
 ### Data I/O 
 以下のファイルフォーマットに対応
-
 - PMM
 - PMX
 - VMD
-- EMM
-- EMD
+- ※Emm / Emd 削除
 
-### Common
-I/O以外の機能を放り込んでるフォルダ
-
-- Encoding
-  - .NET でも簡単に Shift JIS を得るために用意
-- Color
-  - 浮動小数点数で色情報を保持する構造体
-- BoneNameComparer
-  - ボーン名をいい感じにソートするための`IComparer<string>`  
-    ソートする関数に引数として渡す
-- Order
-  - ByMap  
-    `List<int>`の中身が新indexとなるようにリストを並び替える
+### 編集点
+- Pmm：文字エンコード周辺を改造
+- Pmm：描画順などのソート順バグ修正
+- Pmm：外部親IOのバグ修正
