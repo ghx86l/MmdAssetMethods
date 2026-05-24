@@ -2,10 +2,8 @@
 C#向けMMD関連データ読込ライブラリ
 
 ## 構成
-### /MikuMikuMethod
+### /MmdAssetMethods
 ライブラリ本体
-### /UnitTest
-自動テスト
 
 ## 機能
 ### Data I/O 
