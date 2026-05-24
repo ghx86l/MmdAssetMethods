@@ -1,5 +1,5 @@
 # MmdAssetMethods
-C#向けMMD関連データ読込ライブラリ
+C#向けMMD関連ファイルIOライブラリ
 
 ## 機能
 ### Data I/O 
