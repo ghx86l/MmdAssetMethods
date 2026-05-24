@@ -1,0 +1,5111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MmdAssetMethods</name>
+    </assembly>
+    <members>
+        <member name="T:MmdAssetMethods.BoneNameComparer">
+            <summary>
+            ボーン名の比較クラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.BoneNameComparer.Compare(System.String,System.String)">
+            <summary>
+            比較
+            </summary>
+            <returns>
+            <para>0未満 - このインスタンスはotherよりソート順が前である</para>
+            <para>0 - このインスタンスはotherとソート順が同じである</para>
+            <para>0超 - このインスタンスはotherよりソート順が後である</para>
+            </returns>
+        </member>
+        <member name="T:MmdAssetMethods.BoneNameComparer.Ordo">
+            <summary>
+            順序構造体
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.ColorF">
+            <summary>
+            浮動小数点で値を保持する色構造体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.ColorF.R">
+            <summary>
+            赤
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.ColorF.G">
+            <summary>
+            緑
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.ColorF.B">
+            <summary>
+            青
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.ColorF.A">
+            <summary>
+            不透明度
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            RGB値を-1.0から1.0の範囲で指定して初期化します。透明度は1に設定されます。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            RGB値を-255から255の範囲で指定して初期化します。透明度は1に設定されます。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            透明度とRGB値を-1.0から1.0の範囲で指定して初期化します。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            透明度とRGB値を-255から255の範囲で指定して初期化します。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            指定した値を指定した範囲内に収めます。
+            </summary>
+            <param name="value">クランプする値</param>
+            <param name="min">値の下限</param>
+            <param name="max">値の上限</param>
+            <returns>クランプされた値</returns>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.ToColor">
+            <summary>
+            バイト整数で値を保持する色構造体に変換
+            </summary>
+            <returns>色</returns>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.FromColor(System.Drawing.Color)">
+            <summary>
+            バイト整数で値を保持する色構造体から変換
+            </summary>
+            <param name="color">変換元の色</param>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.FromARGB(System.Single,MmdAssetMethods.ColorF)">
+            <summary>
+            透明度と元色を指定して色構造体を作成
+            </summary>
+            <param name="alpha">透明度</param>
+            <param name="baseColor">元となる色</param>
+            <returns>浮動小数色構造体</returns>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.FromARGB(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            数値指定で色構造体を作成
+            </summary>
+            <param name="alpha">透明度</param>
+            <param name="red">赤</param>
+            <param name="green">緑</param>
+            <param name="blue">青</param>
+            <returns>浮動小数色構造体</returns>
+        </member>
+        <member name="M:MmdAssetMethods.ColorF.FromARGB(System.Single,System.Single,System.Single)">
+            <summary>
+            数値指定で色構造体を作成
+            </summary>
+            <param name="red">赤</param>
+            <param name="green">緑</param>
+            <param name="blue">青</param>
+            <returns>浮動小数色構造体</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Common.DataSection">
+            <summary>
+            名前、インデックス、および説明からなるデータセクションを表すクラス。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Common.DataSection.#ctor(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            名前、インデックス、および説明からなるデータセクションを表すクラス。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Common.DataSection.GetOrdinal(System.Int32)">
+            <summary>
+            整数を序数形式の文字列（1st, 2nd, 3rd, etc）に変換します。
+            </summary>
+            <param name="number">序数形式に変換する整数</param>
+            <returns>序数形式の文字列</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Common.DataSection.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Common.ObservableBinaryReader">
+            <summary>
+            バイナリデータが読み込まれたときに通知を提供する <see cref="T:System.IO.BinaryReader"/> です。
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Common.ObservableBinaryReader.ReadValueEventHandler">
+            <summary>
+            バイナリデータが読み込まれたときに呼び出されるイベントハンドラ
+            </summary>
+            <param name="value">読み取った値</param>
+            <param name="type">読み取った型</param>
+        </member>
+        <member name="E:MmdAssetMethods.Common.ObservableBinaryReader.OnRead">
+            <summary>
+            バイナリデータが読み込まれたときに呼び出されます。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.#ctor(System.IO.Stream,System.Text.Encoding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadBoolean">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadByte">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadBytes(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadInt32">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadSingle">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.Read">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.Read(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.Read(System.Span{System.Byte})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.Read(System.Span{System.Char})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadChar">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadChars(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadDecimal">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadDouble">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadHalf">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadInt16">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadInt64">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadSByte">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadUInt16">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadUInt32">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Common.ObservableBinaryReader.ReadUInt64">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Common.Size">
+            <summary>
+            大きさ
+            </summary>
+            <param name="Width">幅</param>
+            <param name="Height">高さ</param>
+        </member>
+        <member name="M:MmdAssetMethods.Common.Size.#ctor(System.Int32,System.Int32)">
+            <summary>
+            大きさ
+            </summary>
+            <param name="Width">幅</param>
+            <param name="Height">高さ</param>
+        </member>
+        <member name="P:MmdAssetMethods.Common.Size.Width">
+            <summary>幅</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Common.Size.Height">
+            <summary>高さ</summary>
+        </member>
+        <member name="T:MmdAssetMethods.Common.Point2`1">
+            <summary>
+            二次元平面上の <typeparamref name="T"/> の点を表す構造体。
+            </summary>
+            <typeparam name="T">座標の型。</typeparam>
+            <param name="X">X 座標</param>
+            <param name="Y">Y 座標</param>
+        </member>
+        <member name="M:MmdAssetMethods.Common.Point2`1.#ctor(`0,`0)">
+            <summary>
+            二次元平面上の <typeparamref name="T"/> の点を表す構造体。
+            </summary>
+            <typeparam name="T">座標の型。</typeparam>
+            <param name="X">X 座標</param>
+            <param name="Y">Y 座標</param>
+        </member>
+        <member name="P:MmdAssetMethods.Common.Point2`1.X">
+            <summary>X 座標</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Common.Point2`1.Y">
+            <summary>Y 座標</summary>
+        </member>
+        <member name="M:MmdAssetMethods.Common.Point2`1.op_Implicit(MmdAssetMethods.Common.Point2{`0})~System.ValueTuple{`0,`0}">
+            <summary>
+            <see cref="T:MmdAssetMethods.Common.Point2`1"/> を (<typeparamref name="T"/>, <typeparamref name="T"/>) タプルに暗黙的に変換します。
+            </summary>
+            <param name="value">変換する <see cref="T:MmdAssetMethods.Common.Point2`1"/></param>
+        </member>
+        <member name="M:MmdAssetMethods.Common.Point2`1.op_Implicit(System.ValueTuple{`0,`0})~MmdAssetMethods.Common.Point2{`0}">
+            <summary>
+            (<typeparamref name="T"/>, <typeparamref name="T"/>) タプルを <see cref="T:MmdAssetMethods.Common.Point2`1"/> に暗黙的に変換します。
+            </summary>
+            <param name="value">変換する (<typeparamref name="T"/>, <typeparamref name="T"/>) タプル</param>
+        </member>
+        <member name="T:MmdAssetMethods.Common.SelfShadow">
+            <summary>
+            影のモード
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Common.SelfShadow.None">
+            <summary>
+            影なし
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Common.SelfShadow.Mode1">
+            <summary>
+            モード1
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Common.SelfShadow.Mode2">
+            <summary>
+            モード2
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Encoding">
+            <summary>
+            <para>MMD関係で使用するエンコード方式</para>
+            <para>Shift JIS はそのままだと使えないので</para>
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.InterpolationItem">
+            <summary>
+            補間項目
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.XPosition">
+            <summary>
+            x軸移動
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.YPosition">
+            <summary>
+            Y軸移動
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.ZPosition">
+            <summary>
+            Z軸移動
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.Rotation">
+            <summary>
+            回転
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.Distance">
+            <summary>
+            距離
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.InterpolationItem.ViewAngle">
+            <summary>
+            視野角
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.InterpolationCurve">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.InterpolationCurve.EarlyControlPoint">
+            <summary>
+            始点側制御点
+            [0,127]
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.InterpolationCurve.LateControlPoint">
+            <summary>
+            終点側制御点
+            [0,127]
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.InterpolationCurve.EarlyControlPointFloat">
+            <summary>
+            始点側制御点
+            [0.0,1.0]
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.InterpolationCurve.LateControlPointFloat">
+            <summary>
+            終点側制御点
+            [0.0,1.0]
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.#ctor">
+            <summary>
+            InterpolationCurveの新しいインスタンスを初期化します。
+            </summary>
+            <remarks>
+            このコンストラクタは、始点側制御点を(20, 20)、終点側制御点を(107, 107)に設定します。
+            </remarks>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CopyFrom(MmdAssetMethods.InterpolationCurve)">
+            <summary>
+            他の補間曲線からパラメータをコピー
+            </summary>
+            <param name="curve"></param>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.FromBytes(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            バイト配列から値を指定する
+            </summary>
+            <param name="bytes">{EarlyControlPoint.X, EarlyControlPoint.Y, LateControlPoint.X, LateControlPoint.Y}</param>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.ToBytes">
+            <summary>
+            バイト配列で返す
+            {始点側制御点X, 始点側制御点Y, 終点側制御点X, 終点側制御点Y}
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CreateByVMDFormat(System.Byte[],MmdAssetMethods.Vmd.VmdFrameKind)">
+            <summary>
+            VMD形式のバイト列から補間曲線クラスの連想配列を生成する。
+            </summary>
+            <param name="data">バイト列</param>
+            <param name="type">フレームの種類</param>
+            <returns>補間曲線の連想配列</returns>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CreateVMDFormatBytes(System.Collections.ObjectModel.ReadOnlyDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve},MmdAssetMethods.Vmd.VmdFrameKind)">
+            <summary>
+            補間曲線の連想配列からVMD形式のバイト列を生成する。
+            </summary>
+            <param name="curves">補間曲線の連想配列</param>
+            <param name="type">フレームの種類</param>
+            <returns>バイト列</returns>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.Clone(System.Collections.ObjectModel.ReadOnlyDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve})">
+            <summary>
+            与えられたReadOnlyDictionaryのクローンを作成します。
+            </summary>
+            <param name="curves">クローンを作成するための元となるInterpolationCurveのReadOnlyDictionary。</param>
+            <returns>元のReadOnlyDictionaryの深いコピーを含む新しいReadOnlyDictionary。</returns>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CreateCameraCurves">
+            <summary>
+            新しいカメラ用のInterpolationCurveのReadOnlyDictionaryを作成します。
+            </summary>
+            <returns>新しいカメラ用のInterpolationCurveのReadOnlyDictionary。</returns>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CreateBoneCurves">
+            <summary>
+            新しいボーン用のInterpolationCurveのReadOnlyDictionaryを作成します。
+            </summary>
+            <returns>新しいボーン用のInterpolationCurveのReadOnlyDictionary。</returns>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.CopyCurves(System.Collections.Generic.IDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve},System.Collections.Generic.IDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve})">
+            <summary>
+            全補間曲線をコピーする
+            </summary>
+            <param name="from">コピー元辞書</param>
+            <param name="to">コピー先辞書(<b>破壊的</b>)</param>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.op_Equality(MmdAssetMethods.InterpolationCurve,MmdAssetMethods.InterpolationCurve)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.op_Inequality(MmdAssetMethods.InterpolationCurve,MmdAssetMethods.InterpolationCurve)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.InterpolationCurve.Equals(MmdAssetMethods.InterpolationCurve)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Utility">
+            <summary>
+            便利メソッド集
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.ApplyVmd">
+            <summary>
+            PMM に対して VMD を適用する拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ApplyCameraVmd(MmdAssetMethods.Pmm.PolygonMovieMaker,MmdAssetMethods.Vmd.VocaloidMotionData,MmdAssetMethods.Converter.CameraMotionApplyingOptions)">
+            <summary>
+            カメラモーションを PMM に適用する
+            </summary>
+            <param name="pmm">対象 PMM データ</param>
+            <param name="cameraVmd">カメラモーション</param>
+            <param name="options">適用オプション</param>
+            <exception cref="T:System.ArgumentException">カメラモーションではない VMD が渡された場合に投げられる</exception>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ApplyModelVmd(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Vmd.VocaloidMotionData,MmdAssetMethods.Converter.ModelMotionApplyingOptions)">
+            <summary>
+            モデルモーションを PMM に適用する
+            </summary>
+            <param name="model">適用対象モデル</param>
+            <param name="modelVmd">モデルモーション</param>
+            <param name="options">適用オプション</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ToPmmFrame(MmdAssetMethods.Vmd.VmdLightFrame,System.UInt32)">
+            <summary>
+            VMD のフレーム情報を PMM のフレーム情報に変換する
+            </summary>
+            <param name="frame">変換対象フレーム</param>
+            <param name="offset">フレーム時間の適用オフセット</param>
+            <returns>PMM のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ToPmmFrame(MmdAssetMethods.Vmd.VmdShadowFrame,System.UInt32)">
+            <summary>
+            VMD のフレーム情報を PMM のフレーム情報に変換する
+            </summary>
+            <param name="frame">変換対象フレーム</param>
+            <param name="offset">フレーム時間の適用オフセット</param>
+            <returns>PMM のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ToPmmFrame(MmdAssetMethods.Vmd.VmdMotionFrame,System.UInt32)">
+            <summary>
+            VMD のフレーム情報を PMM のフレーム情報に変換する
+            </summary>
+            <param name="frame">変換対象フレーム</param>
+            <param name="offset">フレーム時間の適用オフセット</param>
+            <returns>PMM のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ToPmmFrame(MmdAssetMethods.Vmd.VmdMorphFrame,System.UInt32)">
+            <summary>
+            VMD のフレーム情報を PMM のフレーム情報に変換する
+            </summary>
+            <param name="frame">変換対象フレーム</param>
+            <param name="offset">フレーム時間の適用オフセット</param>
+            <returns>PMM のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ApplyVmd.ToPmmFrame(MmdAssetMethods.Vmd.VmdPropertyFrame,System.Collections.Generic.IEnumerable{MmdAssetMethods.Pmm.PmmBone},System.UInt32)">
+            <summary>
+            VMD のフレーム情報を PMM のフレーム情報に変換する
+            </summary>
+            <param name="frame">変換対象フレーム</param>
+            <param name="bones">変換対象 <see cref="T:MmdAssetMethods.Pmm.PmmModel"/> に属するボーンのコレクション</param>
+            <param name="offset">フレーム時間の適用オフセット</param>
+            <returns>PMM のフレームオブジェクト</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.ExtractMotion">
+            <summary>
+            PMM から VMD を抽出する拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ExtractCameraMotion(MmdAssetMethods.Pmm.PolygonMovieMaker,MmdAssetMethods.Converter.CameraMotionExtractionOptions)">
+            <summary>
+            カメラモーション VMD を PMM から抽出して作成する
+            </summary>
+            <param name="pmm">もととなる PMM</param>
+            <param name="options">抽出設定</param>
+            <returns>カメラモーション VMD</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ExtractModelMotion(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Converter.ModelMotionExtractionOptions)">
+            <summary>
+            モデルモーション VMD を PMM から抽出して作成する
+            </summary>
+            <param name="model">もととなるモデル</param>
+            <param name="options">抽出設定</param>
+            <returns>モデルモーション VMD</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmCameraFrame)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmLightFrame)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmBoneFrame,System.String)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <param name="boneName">ボーン名</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmMorphFrame,System.String)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <param name="morphName">モーフ名</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ExtractMotion.ToVmdFrame(MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame)">
+            <summary>
+            PMM のフレームから VMD のフレームに変換する
+            </summary>
+            <param name="frame">変換元フレーム</param>
+            <returns>VMD のフレームオブジェクト</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.ModelConverter">
+            <summary>
+            PMX モデルを PMM モデルに変換する拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ModelConverter.ToPmmModel(MmdAssetMethods.Pmx.PmxModel,System.String)">
+            <summary>
+            PMX から PMM へモデルを変換する
+            </summary>
+            <param name="pmxModel">変換元モデル</param>
+            <param name="pmxPath">変換元モデルのファイルパス</param>
+            <returns>PMM のモデルオブジェクト</returns>
+            <exception cref="T:System.IO.FileNotFoundException">指定されたパスにファイルが存在しなかった場合</exception>
+            <exception cref="T:System.ArgumentException">モデルの表示枠に不正な要素が存在した場合</exception>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.CameraMotionExtractionOptions">
+            <summary>
+            PMMからカメラモーションを抽出する際のオプション
+            </summary>
+            <param name="StartFrame">開始フレーム</param>
+            <param name="EndFrame">終了フレーム nullなら全フレーム</param>
+            <param name="Camera">カメラ</param>
+            <param name="Light">照明</param>
+            <param name="Shadow">セルフ影</param>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.CameraMotionExtractionOptions.#ctor(System.UInt32,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            PMMからカメラモーションを抽出する際のオプション
+            </summary>
+            <param name="StartFrame">開始フレーム</param>
+            <param name="EndFrame">終了フレーム nullなら全フレーム</param>
+            <param name="Camera">カメラ</param>
+            <param name="Light">照明</param>
+            <param name="Shadow">セルフ影</param>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionExtractionOptions.StartFrame">
+            <summary>開始フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionExtractionOptions.EndFrame">
+            <summary>終了フレーム nullなら全フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionExtractionOptions.Camera">
+            <summary>カメラ</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionExtractionOptions.Light">
+            <summary>照明</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionExtractionOptions.Shadow">
+            <summary>セルフ影</summary>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.ModelMotionExtractionOptions">
+            <summary>
+            PMMからモデルモーションを抽出する際のオプション
+            </summary>
+            <param name="StartFrame">開始フレーム</param>
+            <param name="EndFrame">終了フレーム nullなら全フレーム</param>
+            <param name="Motion">モーション</param>
+            <param name="Morph">モーフ</param>
+            <param name="Property">表示・IK</param>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ModelMotionExtractionOptions.#ctor(System.UInt32,System.Nullable{System.UInt32},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            PMMからモデルモーションを抽出する際のオプション
+            </summary>
+            <param name="StartFrame">開始フレーム</param>
+            <param name="EndFrame">終了フレーム nullなら全フレーム</param>
+            <param name="Motion">モーション</param>
+            <param name="Morph">モーフ</param>
+            <param name="Property">表示・IK</param>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionExtractionOptions.StartFrame">
+            <summary>開始フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionExtractionOptions.EndFrame">
+            <summary>終了フレーム nullなら全フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionExtractionOptions.Motion">
+            <summary>モーション</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionExtractionOptions.Morph">
+            <summary>モーフ</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionExtractionOptions.Property">
+            <summary>表示・IK</summary>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.CameraMotionApplyingOptions">
+            <summary>
+            VMDのカメラモーションを適用する際のオプション
+            </summary>
+            <param name="Offset">適用開始フレーム</param>
+            <param name="Camera">カメラ</param>
+            <param name="Light">照明</param>
+            <param name="Shadow">セルフ影</param>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.CameraMotionApplyingOptions.#ctor(System.UInt32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            VMDのカメラモーションを適用する際のオプション
+            </summary>
+            <param name="Offset">適用開始フレーム</param>
+            <param name="Camera">カメラ</param>
+            <param name="Light">照明</param>
+            <param name="Shadow">セルフ影</param>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionApplyingOptions.Offset">
+            <summary>適用開始フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionApplyingOptions.Camera">
+            <summary>カメラ</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionApplyingOptions.Light">
+            <summary>照明</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.CameraMotionApplyingOptions.Shadow">
+            <summary>セルフ影</summary>
+        </member>
+        <member name="T:MmdAssetMethods.Converter.ModelMotionApplyingOptions">
+            <summary>
+            VMDのモデルモーションを適用する際のオプション
+            </summary>
+            <param name="Offset">適用開始フレーム</param>
+            <param name="Motion">モーション</param>
+            <param name="Morph">モーフ</param>
+            <param name="Property">表示・IK</param>
+        </member>
+        <member name="M:MmdAssetMethods.Converter.ModelMotionApplyingOptions.#ctor(System.UInt32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            VMDのモデルモーションを適用する際のオプション
+            </summary>
+            <param name="Offset">適用開始フレーム</param>
+            <param name="Motion">モーション</param>
+            <param name="Morph">モーフ</param>
+            <param name="Property">表示・IK</param>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionApplyingOptions.Offset">
+            <summary>適用開始フレーム</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionApplyingOptions.Motion">
+            <summary>モーション</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionApplyingOptions.Morph">
+            <summary>モーフ</summary>
+        </member>
+        <member name="P:MmdAssetMethods.Converter.ModelMotionApplyingOptions.Property">
+            <summary>表示・IK</summary>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.BinaryRead">
+            <summary>
+            BinaryReader向け拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadVector2(System.IO.BinaryReader)">
+            <summary>
+            Reads a 2 dimension vector including two 4-byte floating point values from the current stream and advances the current position of the stream by 8 bytes.
+            </summary>
+            <returns>A 2 dimension vector including two 4-byte floating point values read from the current stream.</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadVector3(System.IO.BinaryReader)">
+            <summary>
+            Reads a 3 dimension vector including three 4-byte floating point values from the current stream and advances the current position of the stream by 12 bytes.
+            </summary>
+            <returns>A 3 dimension vector including three 4-byte floating point values read from the current stream.</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadVector4(System.IO.BinaryReader)">
+            <summary>
+            Reads a 4 dimension vector including four 4-byte floating point values from the current stream and advances the current position of the stream by 16 bytes.
+            </summary>
+            <returns>A 4 dimension vector including four 4-byte floating point values read from the current stream.</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadQuaternion(System.IO.BinaryReader)">
+            <summary>
+            Reads a quaternion including four 4-byte floating point values from the current stream and advances the current position of the stream by 16 bytes.
+            </summary>
+            <returns>A quaternion including four 4-byte floating point values read from the current stream.</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadString(System.IO.BinaryReader,System.Int32,System.Text.Encoding,System.Nullable{System.Char})">
+            <summary>
+            指定文字数の文字列をバイナリから読み込む
+            </summary>
+            <param name="reader">リーダー</param>
+            <param name="length">文字数</param>
+            <param name="encoding">エンコード形式</param>
+            <param name="endChar">終端文字 この文字以降を読み飛ばす</param>
+            <returns>読み込んだ文字列</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadSingleRGBA(System.IO.BinaryReader)">
+            <summary>
+            <para>[0, 1]の浮動小数点数で表された色情報をバイナリから読み込む</para>
+            <para>{R, G, B, A}の順で読み込む</para>
+            </summary>
+            <returns>読み込んだ浮動小数点数表現色</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryRead.ReadSingleRGB(System.IO.BinaryReader)">
+            <summary>
+            <para>[0, 1]の浮動小数点数で表された色情報をバイナリから読み込む</para>
+            <para>{R, G, B}の順で読み込む</para>
+            </summary>
+            <returns>読み込んだ浮動小数点数表現色</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.BinaryWrite">
+            <summary>
+            BinaryWriter向け拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.Numerics.Vector2)">
+            <summary>
+            Writes a 2 dimension vector including two four-byte floating-point value to the current stream and advances the stream position by 8 bytes.
+            </summary>
+            <param name="writer">The binary writer to which the value will be written.</param>
+            <param name="value">The 2 dimension vector including two four-byte floating-point value to write.</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.Numerics.Vector3)">
+            <summary>
+            Writes a 3 dimension vector including three four-byte floating-point value to the current stream and advances the stream position by 12 bytes.
+            </summary>
+            <param name="writer">The binary writer to which the value will be written.</param>
+            <param name="value">The 3 dimension vector including three four-byte floating-point value to write.</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.Numerics.Vector4)">
+            <summary>
+            Writes a 4 dimension vector including four four-byte floating-point value to the current stream and advances the stream position by 16 bytes.
+            </summary>
+            <param name="writer">The binary writer to which the value will be written.</param>
+            <param name="value">The 4 dimension vector including four four-byte floating-point value to write.</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.Numerics.Quaternion)">
+            <summary>
+            Writes a quaternion including four four-byte floating-point value to the current stream and advances the stream position by 16 bytes.
+            </summary>
+            <param name="writer">The binary writer to which the value will be written.</param>
+            <param name="value">The quaternion including four four-byte floating-point value to write.</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.String,System.Int32,System.Text.Encoding,System.Char)">
+            <summary>
+            指定長で文字列をバイナリに書き込み
+            <para>文字列の最後には<c>'\0'</c>が付加される</para>
+            </summary>
+            <param name="writer">値を書き込むためのバイナリライター</param>
+            <param name="value">書き込む文字列</param>
+            <param name="length">書き込む長さ</param>
+            <param name="encoding">エンコード形式</param>
+            <param name="filler">余った領域に充填する文字</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,MmdAssetMethods.ColorF,System.Boolean)">
+            <summary>
+            浮動小数点色をバイナリに書き込み
+            </summary>
+            <param name="writer">値を書き込むためのバイナリライター</param>
+            <param name="value">書き込む色</param>
+            <param name="isWriteAlpha">アルファ値の情報を書き込むか</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.BinaryWrite.Write(System.IO.BinaryWriter,System.Drawing.Color,System.Boolean)">
+            <summary>
+            4バイト整数色をバイナリに書き込み
+            </summary>
+            <param name="writer">値を書き込むためのバイナリライター</param>
+            <param name="value">書き込む色</param>
+            <param name="isWriteAlpha">アルファ値の情報を書き込むか</param>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.ColorExtensions">
+            <summary>
+            色関連拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.ColorExtensions.ToColorF(System.Drawing.Color)">
+            <summary>
+            浮動小数色に変換
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.ListControl">
+            <summary>
+            IList / IEnumerable に対するユーティリティ拡張メソッド群。
+            Move は指定したアイテムをリスト内の指定インデックスに移動（存在しなければ挿入）します。
+            Select は選択時の副作用を行いつつ要素を変換して列挙します。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.ListControl.Move``1(System.Collections.Generic.IList{``0},System.Int32,``0)">
+            <summary>
+            指定したアイテムをリストの指定インデックス位置へ移動します。
+            <para>既にリスト内に存在する場合は最初の出現を削除してから挿入します（移動）。</para>
+            <para>アイテムが存在しない場合は指定位置へ挿入します。</para>
+            <para>index が範囲外の場合は安全にクリップ（0..list.Count）されます。</para>
+            </summary>
+            <typeparam name="T">リスト要素の型（参照型）</typeparam>
+            <param name="list">移動対象のリスト（null の場合は何もしない）</param>
+            <param name="index">挿入先インデックス（負なら 0、list.Count より大きければ list.Count に丸められる）</param>
+            <param name="item">移動/挿入する項目（null の場合は何もしない）</param>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.ListControl.Select``2(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.Func{``0,``1})">
+            <summary>
+            要素を列挙しながら副作用(onSelected)を実行し、selector によって変換された結果列を返します。
+            </summary>
+            <typeparam name="TSource">入力シーケンスの要素型</typeparam>
+            <typeparam name="TResult">出力シーケンスの要素型</typeparam>
+            <param name="source">入力シーケンス（null の場合は例外）</param>
+            <param name="onSelected">各要素に対して先に呼ばれる副作用アクション（null 禁止）</param>
+            <param name="selector">各要素を変換して返す関数（null 禁止）</param>
+            <returns>副作用を行った後に selector で変換された要素列</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.Range">
+            <summary>
+            範囲内判定系拡張メソッド
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.Range.IsWithin``1(``0,``0,``0)">
+            <summary>
+            指定された閉区間の範囲内であるかを判断します。
+            </summary>
+            <param name="i"></param>
+            <param name="lower">下限（自身も含む）</param>
+            <param name="upper">上限（自身も含む）</param>
+            <returns></returns>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.Range.IsInside``1(``0,``0,``0)">
+            <summary>
+            指定された開区間の範囲内であるかを判断します。
+            </summary>
+            <param name="i"></param>
+            <param name="lower">下限（自身は含まない）</param>
+            <param name="upper">上限（自身は含まない）</param>
+            <returns></returns>
+        </member>
+        <member name="T:MmdAssetMethods.Extension.Range.Interval">
+            <summary>
+            区間種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Extension.Range.Interval.Open">
+            <summary>
+            開区間
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Extension.Range.Interval.Close">
+            <summary>
+            閉区間
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Extension.Range.IsInRangeOf``1(``0,``0,MmdAssetMethods.Extension.Range.Interval,``0,MmdAssetMethods.Extension.Range.Interval)">
+            <summary>
+            指定した区間の範囲内であるかを判断します。
+            閉区間：自身を含む
+            開区間：自身を含まない
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="i"></param>
+            <param name="lower">下限</param>
+            <param name="lowerInterval">左側の開閉</param>
+            <param name="upper">上限</param>
+            <param name="upperInterval">右側の開閉</param>
+            <returns></returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState">
+            <summary>
+            アクセサリの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Visible">
+            <summary>
+            表示状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Transparency">
+            <summary>
+            透過度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.ParentModel">
+            <summary>
+            親モデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.ParentBone">
+            <summary>
+            親ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Rotation">
+            <summary>
+            回転
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Scale">
+            <summary>
+            拡縮
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.EnableShadow">
+            <summary>
+            影のOn/Off
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.DeepCopy(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmBone)">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="parentModel">移行先の対応する参照親モデル</param>
+            <param name="parentBone">移行先の対応する参照親ボーン</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmAccessoryState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmBoneState">
+            <summary>
+            ボーンの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmBoneState.Movement">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmBoneState.Rotation">
+            <summary>
+            回転量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmBoneState.EnablePhysic">
+            <summary>
+            物理が有効か
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmBoneState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmBoneState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmCameraState">
+            <summary>
+            カメラの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.EyePosition">
+            <summary>
+            カメラ位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.TargetPosition">
+            <summary>
+            カメラ中心の位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.Rotation">
+            <summary>
+            カメラ回転
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.DisablePerspective">
+            <summary>
+            パースのOn/Off
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.FollowingModel">
+            <summary>
+            視点追従先モデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.FollowingBone">
+            <summary>
+            視点追従先ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmCameraState.ViewAngle">
+            <summary>
+            視野角
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmCameraState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmCameraState.DeepCopy(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmBone)">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="followingModel">移行先の対応する参照親モデル</param>
+            <param name="followingBone">移行先の対応する参照親ボーン</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmCameraState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmGravityState">
+            <summary>
+            重力の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmGravityState.Noize">
+            <summary>
+            ノイズ量
+            nullならなし
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmGravityState.Acceleration">
+            <summary>
+            加速度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmGravityState.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmGravityState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmGravityState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmLightState">
+            <summary>
+            ライトの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmLightState.Color">
+            <summary>
+            色(RGBのみ使用)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmLightState.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmLightState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmLightState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState">
+            <summary>
+            モデル設定の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.Visible">
+            <summary>
+            表示
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.EnableIK">
+            <summary>
+            IKが有効か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.OutsideParent">
+            <summary>
+            外部親設定
+            <list>
+                <item>
+                    <term>Key</term>
+                    <description>子側ボーン</description>
+                </item>
+                <item>
+                    <term>Value</term>
+                    <description>外部親設定情報</description>
+                </item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmBone,MmdAssetMethods.Pmm.PmmBone})">
+            <summary>
+            モデル移行用ディープコピー
+            </summary>
+            <param name="boneMap">移行前ボーンと移行先ボーンの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmModelConfigState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState">
+            <summary>
+            各モデルにおけるキーフレーム編集画面の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState.VerticalScrollState">
+            <summary>
+            垂直スクロール状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState.LastFrame">
+            <summary>
+            最終フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState.RangeSelector">
+            <summary>
+            範囲選択の対象
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmModelSpecificKeyFrameEditorState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmMorphState">
+            <summary>
+            モーフの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmMorphState.Weight">
+            <summary>
+            係数
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmMorphState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmMorphState.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState">
+            <summary>
+            外部親の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.StartFrame">
+            <summary>
+            外部親が設定されたフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.EndFrame">
+            <summary>
+            外部親が変化する直前のフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.ParentModel">
+            <summary>
+            外部親のモデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.ParentBone">
+            <summary>
+            外部親のボーン
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmOutsideParentState.DeepCopy(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmBone)">
+            <summary>
+            モデル移行用ディープコピー
+            </summary>
+            <param name="parentModel">移行先の対応する参照親モデル</param>
+            <param name="parentBone">移行先の対応する参照親ボーン</param>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector">
+            <summary>
+            範囲選択をする対象を表すレコード
+            <para>静的メソッドで生成ができるのでそれを使うことを推奨</para>
+            </summary>
+            <param name="Index">範囲選択対象の内部インデックス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.#ctor(System.Int32)">
+            <summary>
+            範囲選択をする対象を表すレコード
+            <para>静的メソッドで生成ができるのでそれを使うことを推奨</para>
+            </summary>
+            <param name="Index">範囲選択対象の内部インデックス</param>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.Index">
+            <summary>範囲選択対象の内部インデックス</summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.AllFrames">
+            <summary>
+            全フレーム
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.RootBone">
+            <summary>
+            最初のボーン
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.ConfigFrame">
+            <summary>
+            表示・IK・外観
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.SelectedBones">
+            <summary>
+            選択ボーン
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.SelectedMorphs">
+            <summary>
+            選択表情
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.AllMorphFrames">
+            <summary>
+            全表情フレーム
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.AllBoneFrames">
+            <summary>
+            全ボーンフレーム
+            <para>モーフが存在しないモデルでのみ有効</para>
+            <para>モーフが存在するモデルでこれを設定すると最初のモーフになる</para>
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.Create(MmdAssetMethods.Pmm.IPmmModelElement,MmdAssetMethods.Pmm.PmmModel)">
+            <summary>
+            ボーン/モーフに対応する範囲選択セレクタオブジェクトを生成する
+            </summary>
+            <param name="element">ボーン/モーフ</param>
+            <param name="model"><c>element</c>が属するモデル</param>
+            <returns>引数のボーン/モーフに対応した範囲セレクタオブジェクト</returns>
+            <exception cref="T:System.ArgumentException"><c>element</c>にボーン/モーフ以外が入力された</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><c>model</c>内に存在しない<c>element</c>が指定された</exception>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.ElementState.PmmRangeSelector.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.IPmmFrame">
+            <summary>
+            PMMデータのフレーム情報インターフェイス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.IPmmFrame.Frame">
+            <summary>
+            フレーム位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.IPmmFrame.IsSelected">
+            <summary>
+            選択状態か
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.IPmmFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame">
+            <summary>
+            アクセサリフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.DeepCopy(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmBone)">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="parentModel">移行対象側の対応する参照親モデル</param>
+            <param name="parentBone">移行対象側の対応する参照親ボーン</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.MmdAssetMethods#Pmm#Frame#IPmmFrame#DeepCopy">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmAccessoryFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmBoneFrame">
+            <summary>
+            ボーンフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmBoneFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmBoneFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmBoneFrame.InterpolationCurves">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmBoneFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmBoneFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmCameraFrame">
+            <summary>
+            カメラフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.Distance">
+            <summary>
+            カメラの距離
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.InterpolationCurves">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.DeepCopy(MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmBone)">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="followingModel">移行対象側の対応する参照親モデル</param>
+            <param name="followingBone">移行対象側の対応する参照親ボーン</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmCameraFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmGravityFrame">
+            <summary>
+            重力フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmGravityFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmGravityFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmGravityFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmGravityFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmLightFrame">
+            <summary>
+            ライトフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmLightFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmLightFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmLightFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmLightFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame">
+            <summary>
+            モデル設定フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmBone,MmdAssetMethods.Pmm.PmmBone})">
+            <summary>
+            モデル移行用ディープコピー
+            </summary>
+            <param name="boneMap">移行前ボーンと移行先ボーンの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmModelConfigFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmMorphFrame">
+            <summary>
+            モーフフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmMorphFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmMorphFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmMorphFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmMorphFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame">
+            <summary>
+            セルフ影フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.Frame">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.ShadowMode">
+            <summary>
+            影モード
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.ShadowRange">
+            <summary>
+            影範囲
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.Frame.PmmSelfShadowFrame.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.IO.PmmFileReader">
+            <summary>
+            PMMファイルの読込クラス
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.IO.PmmFileReader.OnSectionChangeEventHandler">
+            <summary>
+            読込セクションの変更時イベントのイベントハンドラ
+            </summary>
+            <param name="section">変更後のイベント</param>
+        </member>
+        <member name="E:MmdAssetMethods.Pmm.IO.PmmFileReader.OnChangeSection">
+            <summary>
+            読込セクションの変更イベント
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.IO.PmmFileReader.Current">
+            <summary>
+            現在の読込セクション
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileReader.Read(System.String,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            PMM ファイルの読込
+            </summary>
+            <param name="filePath">ファイルパス</param>
+            <param name="pmm">情報書込み対象の PMM データ</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileReader.Read(System.IO.BinaryReader,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            PMM ファイルの読込
+            </summary>
+            <param name="reader">読込用バイナリリーダー</param>
+            <param name="pmm">情報書込み対象の PMM データ</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileReader.AssignFramesToModelElements``1(System.IO.BinaryReader,System.Func{System.IO.BinaryReader,MmdAssetMethods.Pmm.IO.PmmFileReader.FrameInfo},System.Collections.Generic.Dictionary{``0,System.Nullable{System.Int32}},System.Action{``0,MmdAssetMethods.Pmm.Frame.IPmmFrame})">
+            <summary>
+            ボーン/モーフの初期以外のフレームを読み込む
+            <para>フレームの属する要素が前後フレームIDによって管理されているので、各要素内のフレームコレクションに投入するための解決処理を実施する</para>
+            </summary>
+            <param name="reader">バイナリ読込クラス</param>
+            <param name="readElementFrame">フレーム読込メソッドの呼び出し関数</param>
+            <param name="elementNextFrameDictionary">要素名とそれに対応する次フレームIDの辞書</param>
+            <param name="addFrame">所属要素にフレームを追加する関数</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.IO.PmmFileWriter">
+            <summary>
+            PMM 書込みクラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.Write(System.String,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            PMM ファイルの書き込み
+            </summary>
+            <param name="filePath">ファイルパス</param>
+            <param name="pmm">書込み対象 PMM ファイル</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.Write(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            PMMファイルの書込み
+            </summary>
+            <param name="writer">バイナリライター</param>
+            <param name="pmm">書込み対象 PMM ファイル</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WriteSelfShadow(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PmmSelfShadow)">
+            <summary>
+            セルフ影書込み
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WritePhysics(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PmmPhysics)">
+            <summary>
+            物理書込み
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WriteAccessory(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PmmAccessory,System.Int32,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            アクセサリー書込み
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WriteLight(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PmmLight)">
+            <summary>
+            ライト書込み
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WriteCamera(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PmmCamera,MmdAssetMethods.Pmm.PolygonMovieMaker)">
+            <summary>
+            カメラ書込み
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.IO.PmmFileWriter.WriteModel(System.IO.BinaryWriter,MmdAssetMethods.Pmm.PolygonMovieMaker,MmdAssetMethods.Pmm.PmmModel,System.Int32)">
+            <summary>
+            モデル書込み
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.IPmmModelElement">
+            <summary>
+            モデルに属する要素のインターフェイス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.IPmmModelElement.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmAccessory">
+            <summary>
+            PMM用アクセサリークラス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmAccessory.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmAccessory.Path">
+            <summary>
+            ファイルパス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmAccessory.EnableAlphaBlend">
+            <summary>
+            加算合成のOn/Off
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmAccessory.Frames">
+            <summary>
+            フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmAccessory.Current">
+            <summary>
+            現在の編集状態
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmAccessory.#ctor(System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">名前</param>
+            <param name="path">ファイルパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmAccessory.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmModel},System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmBone,MmdAssetMethods.Pmm.PmmBone})">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="modelMap">移行前モデルと移行先モデルの対応辞書</param>
+            <param name="boneMap">移行前ボーンと移行先ボーンの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmAccessory.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmBackGroundMedia">
+            <summary>
+            背景メディア情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.Audio">
+            <summary>
+            音声ファイルへのパス
+            null ならなし
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.IsBlack">
+            <summary>
+            背景色は黒か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.Video">
+            <summary>
+            背景AVIへのパス
+            null ならなし
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.VideoScale">
+            <summary>
+            背景AVIの表示スケール
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.VideoOffset">
+            <summary>
+            背景AVIの表示位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.Image">
+            <summary>
+            背景画像へのパス
+            null ならなし
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.ImageScale">
+            <summary>
+            背景画像のスケール
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBackGroundMedia.ImageOffset">
+            <summary>
+            背景画像の表示位置
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmBackGroundMedia.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmBackGroundMedia.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmBone">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.Frames">
+            <summary>
+            フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.IsIK">
+            <summary>
+            IKボーンか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.CanSetOutsideParent">
+            <summary>
+            外部親を設定できるか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.Current">
+            <summary>
+            現在の変形状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.IsSelected">
+            <summary>
+            編集画面で選択されているか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmBone.IsCommitted">
+            <summary>
+            変形状態が確定されているか
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmBone.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmBone.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmBone.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmCamera">
+            <summary>
+            カメラ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmCamera.Frames">
+            <summary>
+            カメラのキーフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmCamera.Current">
+            <summary>
+            カメラの編集状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmCamera.EnableViewPointFollowing">
+            <summary>
+            視点追従のOn/Off
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmCamera.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmModel},System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmBone,MmdAssetMethods.Pmm.PmmBone})">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="modelMap">移行前モデルと移行先モデルの対応辞書</param>
+            <param name="boneMap">移行前ボーンと移行先ボーンの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmEditorState">
+            <summary>
+            キーフレームエディタの状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.Width">
+            <summary>
+            編集画面の表示幅
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.VerticalScrollOfAccessory">
+            <summary>
+            アクセサリ選択の縦スクロール量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.IsCameraMode">
+            <summary>
+            現在カメラ編集モードか？
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.SelectedModel">
+            <summary>
+            選択中のモデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.SelectedAccessory">
+            <summary>
+            選択中のアクセサリ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.SelectedBoneOperation">
+            <summary>
+            選択中のボーン操作方法
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.CurrentFrame">
+            <summary>
+            現在のフレーム位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.HorizontalScroll">
+            <summary>
+            キーフレームエディタの水平スクロール量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmEditorState.HorizontalScrollLength">
+            <summary>
+            キーフレームエディタの横スクロール可能長
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation">
+            <summary>
+            MMD上でのボーン操作
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation.Select">
+            <summary>
+            選択
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation.RectangleSelect">
+            <summary>
+            矩形選択
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation.Move">
+            <summary>
+            移動
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation.Rotate">
+            <summary>
+            回転
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmEditorState.BoneOperation.None">
+            <summary>
+            無選択
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmEditorState.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmModel,MmdAssetMethods.Pmm.PmmModel},System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmAccessory,MmdAssetMethods.Pmm.PmmAccessory})">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="modelMap">移行前モデルと移行先モデルの対応辞書</param>
+            <param name="accessoryMap">移行前アクセサリと移行先アクセサリの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmGroundAsParent">
+            <summary>
+            外部親の地面用
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmGroundAsParent.Name">
+            <summary>
+            モデル名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmGroundAsParent.NameEn">
+            <summary>
+            モデル名(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmGroundAsParent.Path">
+            <summary>
+            ファイルパス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmGroundAsParent.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmLight">
+            <summary>
+            照明
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmLight.Frames">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmLight.Current">
+            <summary>
+            現在の状態
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmLight.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmLight.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmModel">
+            <summary>
+            PMM用モデルクラス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.Name">
+            <summary>
+            モデル名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.NameEn">
+            <summary>
+            モデル名(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.Path">
+            <summary>
+            ファイルパス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.Bones">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.Morphs">
+            <summary>
+            モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.Nodes">
+            <summary>
+            表示枠
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SelectedBone">
+            <summary>
+            選択中ボーンの取得/設定
+            <para>モデルに含まれない要素を設定しようとすると <c>ArgumentOutOfRangeException</c> を投げる</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SelectedBrowMorph">
+            <summary>
+            選択中眉モーフの取得/設定
+            <para>モデルに含まれない要素を設定しようとすると <c>ArgumentOutOfRangeException</c> を投げる</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SelectedEyeMorph">
+            <summary>
+            選択中目モーフの取得/設定
+            <para>モデルに含まれない要素を設定しようとすると <c>ArgumentOutOfRangeException</c> を投げる</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SelectedLipMorph">
+            <summary>
+            選択中口モーフの取得/設定
+            <para>モデルに含まれない要素を設定しようとすると <c>ArgumentOutOfRangeException</c> を投げる</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SelectedOtherMorph">
+            <summary>
+            選択中その他モーフの取得/設定
+            <para>モデルに含まれない要素を設定しようとすると <c>ArgumentOutOfRangeException</c> を投げる</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.ConfigFrames">
+            <summary>
+            表示・IK・外観のキーフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.EdgeWidth">
+            <summary>
+            エッジ幅
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.EnableAlphaBlend">
+            <summary>
+            加算合成が有効か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.EnableSelfShadow">
+            <summary>
+            セルフ影が有効か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.SpecificEditorState">
+            <summary>
+            キーフレーム編集画面の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmModel.CurrentConfig">
+            <summary>
+            現在のモデル設定
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmModel.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmModel.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.PmmBone,MmdAssetMethods.Pmm.PmmBone}@)">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="boneMap">移行前ボーンと移行先ボーンの対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmModel.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmModel.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmMorph">
+            <summary>
+            モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmMorph.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmMorph.Frames">
+            <summary>
+            フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmMorph.Current">
+            <summary>
+            現在の状態
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmMorph.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmMorph.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">名前</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmMorph.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmMorph.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmNode">
+            <summary>
+            表示枠
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmNode.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmNode.DoesOpen">
+            <summary>
+            展開されているか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmNode.Elements">
+            <summary>
+            所属しているモデル要素
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmNode.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmNode.DeepCopy(System.Collections.Generic.Dictionary{MmdAssetMethods.Pmm.IPmmModelElement,MmdAssetMethods.Pmm.IPmmModelElement})">
+            <summary>
+            PMM移行用ディープコピー
+            </summary>
+            <param name="elementMap">移行前モデル要素と移行先モデル要素の対応辞書</param>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmPanelPane">
+            <summary>
+            各種操作パネルの開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenCameraPanel">
+            <summary>
+            カメラ操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenLightPanel">
+            <summary>
+            ライト操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenAccessaryPanel">
+            <summary>
+            アクセサリ操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenBonePanel">
+            <summary>
+            ボーン操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenMorphPanel">
+            <summary>
+            表情操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPanelPane.DoesOpenSelfShadowPanel">
+            <summary>
+            セルフ影操作パネル開閉状態
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPanelPane.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPanelPane.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmPhysics">
+            <summary>
+            重力
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPhysics.CurrentGravity">
+            <summary>
+            現在の重力の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPhysics.GravityFrames">
+            <summary>
+            重力フレーム
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmPhysics.PhysicsMode">
+            <summary>
+            物理演算モード
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPhysics.PhysicsMode.Disable">
+            <summary>
+            演算しない
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPhysics.PhysicsMode.Always">
+            <summary>
+            常に演算
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPhysics.PhysicsMode.Switchable">
+            <summary>
+            オン/オフモード
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPhysics.PhysicsMode.Trace">
+            <summary>
+            トレースモード
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPhysics.CalculationMode">
+            <summary>
+            物理演算モード
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPhysics.EnableGroundPhysics">
+            <summary>
+            物理床のOn/Off
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPhysics.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPhysics.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmPlayConfig">
+            <summary>
+            再生設定
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.EnableRepeat">
+            <summary>
+            繰り返し再生を行うか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.EnableMoveCurrentFrameToPlayStopping">
+            <summary>
+            フレ・ストップ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.EnableStartFromCurrentFrame">
+            <summary>
+            フレ・スタート
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.PlayStartFrame">
+            <summary>
+            再生開始フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.PlayStopFrame">
+            <summary>
+            再生停止フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.EnableFollowCamera">
+            <summary>
+            再生時のカメラ追従が有効か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmPlayConfig.CameraTrackingTarget">
+            <summary>
+            視点追従対象
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPlayConfig.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmPlayConfig.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmPlayConfig.TrackingTarget">
+            <summary>
+            視点追従対象
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPlayConfig.TrackingTarget.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPlayConfig.TrackingTarget.Model">
+            <summary>
+            モデル
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmPlayConfig.TrackingTarget.Bone">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmRenderConfig">
+            <summary>
+            レンダー設定
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.InformationVisible">
+            <summary>
+            描画情報の表示/非表示
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.AxisVisible">
+            <summary>
+            座標軸の表示/非表示
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.JumpFrameLocation">
+            <summary>
+            3Dビュー上部のフレーム入力欄の値
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmRenderConfig.FPSLimitValue">
+            <summary>
+            FPS制限
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.FPSLimitValue.Half">
+            <summary>
+            30
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.FPSLimitValue.Full">
+            <summary>
+            60
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.FPSLimitValue.Unlimited">
+            <summary>
+            無制限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.FPSLimit">
+            <summary>
+            FPS制限
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureModeType">
+            <summary>
+            スクリーン用キャプチャモード
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureModeType.Off">
+            <summary>
+            オフ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureModeType.FullScreen">
+            <summary>
+            全画面
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureModeType.Square">
+            <summary>
+            4:3比率
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureModeType.BackgroundVideo">
+            <summary>
+            背景AVI
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.ScreenCaptureMode">
+            <summary>
+            スクリーン用キャプチャモード設定
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.PostDrawingAccessoryStartIndex">
+            <summary>
+            モデルより後に描画するアクセサリのインデックス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.EnableGrandShadow">
+            <summary>
+            地面影の表示/非表示
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.GroundShadowBrightness">
+            <summary>
+            地面影の明るさ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.EnableTransparentGroundShadow">
+            <summary>
+            地面影の透明化
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmRenderConfig.EdgeColor">
+            <summary>
+            エッジの色
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmRenderConfig.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmRenderConfig.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PmmSelfShadow">
+            <summary>
+            セルフ影
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmSelfShadow.EnableSelfShadow">
+            <summary>
+            セルフ影のOn/Off
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmSelfShadow.ShadowRange">
+            <summary>
+            影範囲
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PmmSelfShadow.Frames">
+            <summary>
+            キーフレーム
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmSelfShadow.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PmmSelfShadow.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmm.PolygonMovieMaker">
+            <summary>
+            MMDプロジェクトファイル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Version">
+            <summary>
+            PMMファイルバージョン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.OutputResolution">
+            <summary>
+            出力解像度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Camera">
+            <summary>
+            カメラ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Light">
+            <summary>
+            照明
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.SelfShadow">
+            <summary>
+            セルフ影
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Physics">
+            <summary>
+            物理
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Accessories">
+            <summary>
+            アクセサリー
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.Models">
+            <summary>
+            モデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.BackGround">
+            <summary>
+            背景と音声
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.RenderConfig">
+            <summary>
+            描画設定
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.EditorState">
+            <summary>
+            編集対象の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.PanelPane">
+            <summary>
+            各種操作パネル画面の状態
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmm.PolygonMovieMaker.PlayConfig">
+            <summary>
+            再生関連設定
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.#ctor(System.String)">
+            <summary>
+            ファイルから読み込む
+            </summary>
+            <param name="filePath">読み込むファイル名</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.Write(System.String)">
+            <summary>
+            ファイルに書き込む
+            </summary>
+            <param name="filePath">書き込むファイル名</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.CalculateLastFrame">
+            <summary>
+            最終フレームの位置を求める
+            <para>
+            全フレームのソートを含むため、フレーム数が多いと重いので注意
+            </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.SetRenderOrder(MmdAssetMethods.Pmm.PmmAccessory,System.Byte)">
+            <summary>
+            描画順を設定
+            </summary>
+            <param name="accessory">アクセサリ</param>
+            <param name="renderOrder">描画順</param>
+            <exception cref="T:System.ArgumentException">PMMに所属していないアクセサリが渡された場合</exception>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.GetRenderOrder(MmdAssetMethods.Pmm.PmmAccessory)">
+            <summary>
+            描画順を取得
+            </summary>
+            <param name="accessory">アクセサリ</param>
+            <returns>描画順 PMM に所属していないアクセサリが指定された場合は null</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.SetRenderOrder(MmdAssetMethods.Pmm.PmmModel,System.Byte)">
+            <summary>
+            描画順を設定
+            </summary>
+            <param name="model">モデル</param>
+            <param name="renderOrder">描画順</param>
+            <exception cref="T:System.ArgumentException">PMMに所属していないモデルが渡された場合</exception>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.GetRenderOrder(MmdAssetMethods.Pmm.PmmModel)">
+            <summary>
+            描画順を取得
+            </summary>
+            <param name="model">モデル</param>
+            <returns>描画順 PMM に所属していないモデルが指定された場合は null</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.SetCalculateOrder(MmdAssetMethods.Pmm.PmmModel,System.Byte)">
+            <summary>
+            計算順を設定
+            </summary>
+            <param name="model">モデル</param>
+            <param name="calculateOrder">計算順</param>
+            <exception cref="T:System.ArgumentException">PMMに所属していないモデルが渡された場合</exception>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.GetCalculateOrder(MmdAssetMethods.Pmm.PmmModel)">
+            <summary>
+            計算順を取得
+            </summary>
+            <param name="model">モデル</param>
+            <returns>計算順 PMM に所属していないモデルが指定された場合は null</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.DeepCopy">
+            <summary>
+            ディープコピー
+            </summary>
+            <returns>複製</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmm.PolygonMovieMaker.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IO.PmxFileReader">
+            <summary>
+            PMXファイル読込クラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.IO.PmxFileReader.Read(System.String,MmdAssetMethods.Pmx.PmxModel)">
+            <summary>
+            ファイルから読み込んだ情報をモデルに適用する。
+            </summary>
+            <param name="filePath">読み込むモデルファイルのパス</param>
+            <param name="model">書込み対象インスタンス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.IO.PmxFileReader.Read(System.IO.BinaryReader,MmdAssetMethods.Pmx.PmxModel)">
+            <summary>
+            バイナリから読み込んだ情報をモデルに適用する。
+            </summary>
+            <param name="reader">モデルファイルのバイナリリーダー</param>
+            <param name="model">書込み対象インスタンス</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IO.PmxFileWriter">
+            <summary>
+            PMXファイル書込クラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.IO.PmxFileWriter.Write(System.String,MmdAssetMethods.Pmx.PmxModel)">
+            <summary>
+            モデル書込
+            </summary>
+            <param name="filePath">書込むファイルパス</param>
+            <param name="model">書き込むモデル</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.IO.PmxFileWriter.Write(System.IO.BinaryWriter,MmdAssetMethods.Pmx.PmxModel)">
+            <summary>
+            モデル書込
+            </summary>
+            <param name="writer">バイナリライター</param>
+            <param name="model">書き込むモデル</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IO.StringEncoder">
+            <summary>
+            PMX用エンコードを気にせず文字列を読み書きできるようにしたクラス
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IPmxData">
+            <summary>
+            PMX関連のインターフェイス
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IPmxNodeElement">
+            <summary>
+            表情枠要素
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.IPmxNodeElement.TypeNumber">
+            <summary>
+            表情枠要素の型フラグ番号
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.IPmxNodeElement.Entity">
+            <summary>
+            表情枠要素本体
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.IPmxNodeElement.FindIndex(MmdAssetMethods.Pmx.PmxModel)">
+            <summary>
+            この要素のインデックスを探す
+            </summary>
+            <param name="model">探索対象のモデル</param>
+            <returns>この要素のインデックス</returns>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.IPmxOffset">
+            <summary>
+            モーフ内要素のインターフェイス
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetBone">
+            <summary>
+            ボーンモーフのオフセット
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetBone.Target">
+            <summary>
+            対象ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetBone.Offset">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetBone.Rotate">
+            <summary>
+            回転量
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetBone.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetBone.#ctor(MmdAssetMethods.Pmx.PmxBone,System.Numerics.Vector3,System.Numerics.Quaternion)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">対象ボーン</param>
+            <param name="offset">移動量</param>
+            <param name="rotate">回転量</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetGroup">
+            <summary>
+            グループモーフのオフセット
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetGroup.Target">
+            <summary>
+            対象モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetGroup.Ratio">
+            <summary>
+            適用率
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetGroup.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetGroup.#ctor(MmdAssetMethods.Pmx.PmxMorph,System.Single)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">対象モーフ</param>
+            <param name="ratio">適用率</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetImpulse">
+            <summary>
+            インパルスモーフのオフセット
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetImpulse.Target">
+            <summary>
+            対象剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetImpulse.IsLocal">
+            <summary>
+            ローカルフラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetImpulse.MovingSpeed">
+            <summary>
+            移動速度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetImpulse.RotationTorque">
+            <summary>
+            回転トルク
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetImpulse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetImpulse.#ctor(MmdAssetMethods.Pmx.PmxBody,System.Boolean,System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">対象剛体</param>
+            <param name="isLocal">ローカルフラグ</param>
+            <param name="movingSpead">移動速度</param>
+            <param name="rotationTorque">回転トルク</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetMaterial">
+            <summary>
+            材質モーフのオフセット
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.Target">
+            <summary>
+            対象材質
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.Operation">
+            <summary>
+            演算形式
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.Diffuse">
+            <summary>
+            拡散色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.Specular">
+            <summary>
+            反射色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.Ambient">
+            <summary>
+            環境色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.ReflectionIntensity">
+            <summary>
+            反射強度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.EdgeColor">
+            <summary>
+            エッジ色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.EdgeWidth">
+            <summary>
+            エッジ太さ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.TextureRatio">
+            <summary>
+            テクスチャ係数
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.SphereRatio">
+            <summary>
+            スフィア係数
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetMaterial.ToonRatio">
+            <summary>
+            トゥーン係数
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetMaterial.#ctor(MmdAssetMethods.Pmx.PmxOffsetMaterial.OperationType)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetMaterial.OperationType">
+            <summary>
+            演算形式
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxOffsetMaterial.OperationType.Multiply">
+            <summary>
+            乗算
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxOffsetMaterial.OperationType.Addition">
+            <summary>
+            加算
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetMaterial.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetUV">
+            <summary>
+            UVモーフのオフセット
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetUV.Target">
+            <summary>
+            対象頂点
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetUV.Offset">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetUV.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetUV.#ctor(MmdAssetMethods.Pmx.PmxVertex,System.Numerics.Vector4)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">対象頂点</param>
+            <param name="offset">移動量</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxOffsetVertex">
+            <summary>
+            頂点モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetVertex.Target">
+            <summary>
+            対象頂点
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxOffsetVertex.Offset">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetVertex.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxOffsetVertex.#ctor(MmdAssetMethods.Pmx.PmxVertex,System.Numerics.Vector3)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">対象頂点</param>
+            <param name="offset">移動量</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxBody">
+            <summary>
+            剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.NameEn">
+            <summary>
+            英名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.RelationBone">
+            <summary>
+            関連ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Group">
+            <summary>
+            グループ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.NonCollisionFlag">
+            <summary>
+            非衝突グループフラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Shape">
+            <summary>
+            形状
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Size">
+            <summary>
+            大きさ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Rotation">
+            <summary>
+            回転
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Mass">
+            <summary>
+            質量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.MovingDecay">
+            <summary>
+            移動減衰
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.RotationDecay">
+            <summary>
+            回転減衰
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Resiliency">
+            <summary>
+            反発力
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.Friction">
+            <summary>
+            摩擦力
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBody.PhysicsMode">
+            <summary>
+            物理モード
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxBody.ShapeType">
+            <summary>
+            形状種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.ShapeType.Spere">
+            <summary>
+            球
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.ShapeType.Box">
+            <summary>
+            箱
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.ShapeType.Capsule">
+            <summary>
+            カプセル
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxBody.PhysicsModeType">
+            <summary>
+            物理モード
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.PhysicsModeType.Static">
+            <summary>
+            ボーン追従
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.PhysicsModeType.Dynamic">
+            <summary>
+            物理演算
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBody.PhysicsModeType.Register">
+            <summary>
+            物理演算+ボーン位置合わせ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxBody.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxBone">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.NameEn">
+            <summary>
+            名前(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Parent">
+            <summary>
+            親ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.TransformOrder">
+            <summary>
+            変形階層
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.ConnectionTarget">
+            <summary>
+            接続先指定方法
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.ConnectionTargetOffset">
+            <summary>
+            接続先座標
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.ConnectionTargetBone">
+            <summary>
+            接続先ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Rotatable">
+            <summary>
+            回転可能か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Movable">
+            <summary>
+            移動可能か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Visible">
+            <summary>
+            表示するか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.Controllable">
+            <summary>
+            操作可能か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsIK">
+            <summary>
+            IKか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IKInfo">
+            <summary>
+            IK情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsLocalAddition">
+            <summary>
+            ローカル付与か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsRotateAddition">
+            <summary>
+            回転付与するか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsMoveAddition">
+            <summary>
+            移動付与するか
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.AdditionParent">
+            <summary>
+            付与親
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.AdditionRatio">
+            <summary>
+            付与率
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsFixedAxis">
+            <summary>
+            軸固定か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.FixVector">
+            <summary>
+            軸固定の方向
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsLocalAxis">
+            <summary>
+            ローカル軸か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.LocalAxisX">
+            <summary>
+            ローカル軸X
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.LocalAxisZ">
+            <summary>
+            ローカル軸Z
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.IsAfterPhysic">
+            <summary>
+            物理後変形か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.UseOutsideParent">
+            <summary>
+            外部親を使用するか
+            MMM用らしい
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxBone.OutsideParentKey">
+            <summary>
+            外部親番号
+            MMM用らしい
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxBone.ConnectionTargetType">
+            <summary>
+            ボーンの接続先指定の方法
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBone.ConnectionTargetType.Bone">
+            <summary>
+            ボーンで指定
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxBone.ConnectionTargetType.Offset">
+            <summary>
+            座標で指定
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxBone.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxEdge">
+            <summary>
+            辺
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxEdge.Vertices">
+            <summary>
+            構成頂点
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxEdge.Invert">
+            <summary>
+            辺を反転する
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxEdge.#ctor(MmdAssetMethods.Pmx.PmxVertex,MmdAssetMethods.Pmx.PmxVertex)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="start">起点</param>
+            <param name="end">終点</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxEdge.ToVector">
+            <summary>
+            ベクトルに変換
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxFace">
+            <summary>
+            面
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxFace.Vertices">
+            <summary>
+            構成頂点のリスト
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxFace.Normal">
+            <summary>
+            面法線
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxFace.Invert">
+            <summary>
+            面を反転
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxFace.#ctor(MmdAssetMethods.Pmx.PmxVertex,MmdAssetMethods.Pmx.PmxVertex,MmdAssetMethods.Pmx.PmxVertex)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxFace.FetchEdge(System.Int32,System.Int32)">
+            <summary>
+            指定頂点の構成辺を取得
+            </summary>
+            <param name="startIndex">辺の起点頂点の面内頂点番号を指定</param>
+            <param name="endIndex">辺の終点頂点の面内頂点番号を指定</param>
+            <returns>辺</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxFace.ToEdges">
+            <summary>
+            辺の集合に変換
+            </summary>
+            <returns>辺の集合</returns>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxFace.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxHeader">
+            <summary>
+            ヘッダー
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.FormatName">
+            <summary>
+            フォーマット名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.Version">
+            <summary>
+            PMXのバージョン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.ConfigSize">
+            <summary>
+            モデルの構成情報の要素数
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.EncodingFormat">
+            <summary>
+            エンコード方式
+                <list type="table">
+                    <item>
+                        <term>0</term>
+                        <description>UTF16</description>
+                    </item>
+                    <item>
+                        <term>1</term>
+                        <description>UTF8</description>
+                    </item>
+                </list>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.NumOfAdditionalUV">
+            <summary>
+            <term>追加UV数</term>
+            <description>0 ～ 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfVertexIndex">
+            <summary>
+            <term>頂点Indexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfTextureIndex">
+            <summary>
+            <term>テクスチャIndexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfMaterialIndex">
+            <summary>
+            <term>材質Indexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfBoneIndex">
+            <summary>
+            <term>ボーンIndexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfMorphIndex">
+            <summary>
+            <term>モーフIndexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.SizeOfBodyIndex">
+            <summary>
+            <term>剛体Indexサイズ</term>
+            <description>1 | 2 | 4</description>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxHeader.Encoding">
+            <summary>
+            モデルの使用エンコード方式
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxHeader.#ctor(System.Single)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="version">バージョン</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxHeader.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxInverseKinematics">
+            <summary>
+            IK情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxInverseKinematics.Target">
+            <summary>
+            IKのターゲットボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxInverseKinematics.LoopNum">
+            <summary>
+            ループ回数
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxInverseKinematics.LimitAngle">
+            <summary>
+            ループ計算時の制限角度 -> ラジアン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxInverseKinematics.Links">
+            <summary>
+            リンク
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxInverseKinematics.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxIKLink">
+            <summary>
+            IKのリンク情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxIKLink.Bone">
+            <summary>
+            対象ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxIKLink.EnableAngleLimit">
+            <summary>
+            角度制限の有無
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxIKLink.UpperLimit">
+            <summary>
+            角度制限の上限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxIKLink.LowerLimit">
+            <summary>
+            角度制限の下限
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxIKLink.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxJoint">
+            <summary>
+            ジョイント
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.NameEn">
+            <summary>
+            英名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.Type">
+            <summary>
+            ジョイント種別
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.RelationBodyA">
+            <summary>
+            関連剛体A
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.RelationBodyB">
+            <summary>
+            関連剛体B
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.Rotation">
+            <summary>
+            回転
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.MovingLowerLimit">
+            <summary>
+            移動制限-下限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.MovingUpperLimit">
+            <summary>
+            移動制限-上限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.RotationLowerLimit">
+            <summary>
+            回転制限-下限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.RotationUpperLimit">
+            <summary>
+            回転制限-上限
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.MovingSpringConstants">
+            <summary>
+            バネ定数-移動
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxJoint.RotationSpringConstants">
+            <summary>
+            バネ定数-回転
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxJoint.JointType">
+            <summary>
+            ジョイント種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.SixDofWithSpring">
+            <summary>
+            バネ付6DOF
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.SixDof">
+            <summary>
+            6DOF
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.P2P">
+            <summary>
+            P2P
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.ConeTwist">
+            <summary>
+            ConeTwist
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.Slider">
+            <summary>
+            Slider
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxJoint.JointType.Hinge">
+            <summary>
+            Hinge
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxJoint.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMaterial">
+            <summary>
+            材質
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Name">
+            <summary>
+            材質名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.NameEn">
+            <summary>
+            材質名(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Memo">
+            <summary>
+            メモ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Diffuse">
+            <summary>
+            拡散色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Specular">
+            <summary>
+            反射色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Ambient">
+            <summary>
+            環境色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.ReflectionIntensity">
+            <summary>
+            反射強度
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableBothSideDraw">
+            <summary>
+            両面描画
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableSelfShadow">
+            <summary>
+            セルフ影描画
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableSelfShadowMap">
+            <summary>
+            影マップへの描画
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableShadow">
+            <summary>
+            地面影描画
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableVertexColor">
+            <summary>
+            頂点色有効性
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EnableEdge">
+            <summary>
+            エッジ有効
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EdgeWidth">
+            <summary>
+            エッジ太さ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.EdgeColor">
+            <summary>
+            エッジ色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Faces">
+            <summary>
+            面
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Primitive">
+            <summary>
+            描画プリミティブタイプ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.Texture">
+            <summary>
+            テクスチャ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.SphereMap">
+            <summary>
+            スフィアマップ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.SphereMode">
+            <summary>
+            スフィア種別
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMaterial.ToonMap">
+            <summary>
+            トゥーンマップ
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMaterial.PrimitiveType">
+            <summary>
+            描画プリミティブタイプ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.PrimitiveType.Line">
+            <summary>
+            Line List
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.PrimitiveType.Point">
+            <summary>
+            Point List
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.PrimitiveType.Tri">
+            <summary>
+            Triangle List
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMaterial.SphereModeType">
+            <summary>
+            スフィア種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.SphereModeType.None">
+            <summary>
+            無効
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.SphereModeType.Mul">
+            <summary>
+            乗算
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.SphereModeType.Add">
+            <summary>
+            加算
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.SphereModeType.SubTex">
+            <summary>
+            サブテクスチャ
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag">
+            <summary>
+            材質の描画フラグデータ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.BothSideDraw">
+            <summary>
+            両面描画
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.Shadow">
+            <summary>
+            地面影
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.SelfShadowMap">
+            <summary>
+            セルフ影マップへの描画
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.SelfShadow">
+            <summary>
+            セルフ影
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.Edge">
+            <summary>
+            エッジ描画
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.VertexColor">
+            <summary>
+            頂点色
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.Point">
+            <summary>
+            Point描画
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMaterial.DrawFlag.Line">
+            <summary>
+            Line描画
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxMaterial.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxModel">
+            <summary>
+            PMXモデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Header">
+            <summary>
+            ヘッダ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.ModelInfo">
+            <summary>
+            モデル情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Bodies">
+            <summary>
+            剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Bones">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Faces">
+            <summary>
+            <para>面の一覧</para>
+            <para>面の追加は材質の面プロパティから行う</para>
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Joints">
+            <summary>
+            ジョイント
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Materials">
+            <summary>
+            材質
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Morphs">
+            <summary>
+            モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Nodes">
+            <summary>
+            表情枠
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.Vertices">
+            <summary>
+            頂点
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModel.SoftBodies">
+            <summary>
+            ソフトボディ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.#ctor">
+            <summary>
+            空のモデルを生成するコンストラクタ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.#ctor(System.String)">
+            <summary>
+            ファイルからモデルを読み込む
+            </summary>
+            <param name="filePath">読み込むファイルパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.Read(System.String)">
+            <summary>
+            ファイルからモデルを読み込む
+            </summary>
+            <param name="filePath">読み込むファイルパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.Write(System.String)">
+            <summary>
+            ファイルにモデルを書き込む
+            </summary>
+            <param name="filePath">書き込むファイルパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.ValidateVersion">
+            <summary>
+            このモデルのバージョン番号を最小化する
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModel.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxModelInfo">
+            <summary>
+            モデル情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModelInfo.Name">
+            <summary>
+            モデル名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModelInfo.NameEn">
+            <summary>
+            モデル名(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModelInfo.Comment">
+            <summary>
+            モデルのコメント
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxModelInfo.CommentEn">
+            <summary>
+            モデルのコメント(英語)
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxModelInfo.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMorph">
+            <summary>
+            モーフ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMorph.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMorph.NameEn">
+            <summary>
+            名前(英語)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMorph.Panel">
+            <summary>
+            表示パネル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMorph.Type">
+            <summary>
+            モーフの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxMorph.Offsets">
+            <summary>
+            モーフのオフセット
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxMorph.#ctor(MmdAssetMethods.Pmx.PmxMorph.MorphType)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="type">モーフの種類</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMorph.MorphPanel">
+            <summary>
+            モーフの表示パネル
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphPanel.System">
+            <summary>
+            システム予約
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphPanel.Brow">
+            <summary>
+            眉(左下)
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphPanel.Eye">
+            <summary>
+            目(左上)
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphPanel.Lip">
+            <summary>
+            口(右上)
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphPanel.Other">
+            <summary>
+            その他(右下)
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxMorph.MorphType">
+            <summary>
+            モーフ種類
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Group">
+            <summary>
+            グループ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Vertex">
+            <summary>
+            頂点
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Bone">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.UV">
+            <summary>
+            UV
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.AdditionalUV1">
+            <summary>
+            追加UV1
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.AdditionalUV2">
+            <summary>
+            追加UV2
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.AdditionalUV3">
+            <summary>
+            追加UV3
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.AdditionalUV4">
+            <summary>
+            追加UV4
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Material">
+            <summary>
+            材質
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Flip">
+            <summary>
+            フリップ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxMorph.MorphType.Impulse">
+            <summary>
+            インパルス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxMorph.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxNode">
+            <summary>
+            表示枠
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNode.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNode.NameEn">
+            <summary>
+            英名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNode.IsSpecific">
+            <summary>
+            特殊枠か
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNode.Elements">
+            <summary>
+            表情枠内の要素
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNode.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxNodeElementBone">
+            <summary>
+            ボーンの表情枠要素
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNodeElementBone.TypeNumber">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNodeElementBone.Entity">
+            <summary>
+            参照ボーン
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementBone.FindIndex(MmdAssetMethods.Pmx.PmxModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementBone.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementBone.#ctor(MmdAssetMethods.Pmx.PmxBone)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="entity">参照ボーン</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxNodeElementMorph">
+            <summary>
+            モーフの表情枠要素
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNodeElementMorph.TypeNumber">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxNodeElementMorph.Entity">
+            <summary>
+            参照モーフ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementMorph.FindIndex(MmdAssetMethods.Pmx.PmxModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementMorph.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxNodeElementMorph.#ctor(MmdAssetMethods.Pmx.PmxMorph)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="entity">参照モーフ</param>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody">
+            <summary>
+            SoftBody (未実装)
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Name">
+            <summary>
+            名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.NameEn">
+            <summary>
+            英名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Shape">
+            <summary>
+            形状
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.RelationMaterial">
+            <summary>
+            関連材質
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Group">
+            <summary>
+            グループ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.NonCollisionFlag">
+            <summary>
+            非衝突グループフラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IsCreateBLink">
+            <summary>
+            B-Link 作成フラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IsCreateCluster">
+            <summary>
+            クラスタ作成フラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IsLinkCrossing">
+            <summary>
+            リンク交雑フラグ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.BLinkCreationDistance">
+            <summary>
+            B-Link 作成距離
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.NumOfCluster">
+            <summary>
+            クラスタ数
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.SumOfMass">
+            <summary>
+            総質量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.MarginOfCollision">
+            <summary>
+            衝突マージン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.AeroModel">
+            <summary>
+            エアロモデル
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Config">
+            <summary>
+            設定
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameter">
+            <summary>
+            クラスターパラメーター
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameter">
+            <summary>
+            イテレーションパラメーター
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.MaterialParameter">
+            <summary>
+            マテリアルパラメーター
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Anchors">
+            <summary>
+            アンカー剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Pins">
+            <summary>
+            ピン頂点
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.ShapeType">
+            <summary>
+            形状種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.ShapeType.TriMesh">
+            <summary>
+            TriMesh
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.ShapeType.Rope">
+            <summary>
+            Rope
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType">
+            <summary>
+            エアロモデル種別
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType.V_Point">
+            <summary>
+            V Point
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType.V_TwoSided">
+            <summary>
+            V Two Sided
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType.V_OneSided">
+            <summary>
+            C One Sided
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType.F_TwoSided">
+            <summary>
+            F TwoSided
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.AeroModelType.F_OneSided">
+            <summary>
+            F One Sided
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.BitFlag.CreateBLink">
+            <summary>
+            B-Link 作成
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.BitFlag.CreateCluster">
+            <summary>
+            クラスタ作成
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxSoftBody.BitFlag.LinkCrossing">
+            <summary>
+            リンク交雑
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.Anchor">
+            <summary>
+            アンカー剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Anchor.RelationBody">
+            <summary>
+            関連剛体
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Anchor.RelationVertex">
+            <summary>
+            関連頂点
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.Anchor.IsNearMode">
+            <summary>
+            Nearモード
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer">
+            <summary>
+            Represents a container for configuration parameters of a soft body.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.VCF">
+            <summary>
+            Gets or sets the volume conservation coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.DP">
+            <summary>
+            Gets or sets the dynamic pose matching coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.DG">
+            <summary>
+            Gets or sets the drag coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.LF">
+            <summary>
+            Gets or sets the lift coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.PR">
+            <summary>
+            Gets or sets the pressure coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.VC">
+            <summary>
+            Gets or sets the volume conversation coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.DF">
+            <summary>
+            Gets or sets the dynamic friction coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.MT">
+            <summary>
+            Gets or sets the maximum volume ratio for pose.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.CHR">
+            <summary>
+            Gets or sets the CHR parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.KHR">
+            <summary>
+            Gets or sets the KHR parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.SHR">
+            <summary>
+            Gets or sets the SHR parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ConfigContainer.AHR">
+            <summary>
+            Gets or sets the AHR parameter.
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer">
+            <summary>
+            Represents a container for cluster parameters of a soft body.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SRHR_CL">
+            <summary>
+            Gets or sets the SRHR_CL parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SKHR_CL">
+            <summary>
+            Gets or sets the SKHR_CL parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SSHR_CL">
+            <summary>
+            Gets or sets the SSHR_CL parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SR_SPLT_CL">
+            <summary>
+            Gets or sets the SR_SPLT_CL parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SK_SPLT_CL">
+            <summary>
+            Gets or sets the SK_SPLT_CL parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.ClusterParameterContainer.SS_SPLT_CL">
+            <summary>
+            Gets or sets the SS_SPLT_CL parameter.
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameterContainer">
+            <summary>
+            Represents a container for iteration parameters of a soft body.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameterContainer.V_IT">
+            <summary>
+            Gets or sets the velocity iterations parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameterContainer.P_IT">
+            <summary>
+            Gets or sets the position iterations parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameterContainer.D_IT">
+            <summary>
+            Gets or sets the drift iterations parameter.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.IterationParameterContainer.C_IT">
+            <summary>
+            Gets or sets the cluster iterations parameter.
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxSoftBody.MaterialParameterContainer">
+            <summary>
+            Represents a container for material parameters of a soft body.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.MaterialParameterContainer.LST">
+            <summary>
+            Gets or sets the linear stiffness coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.MaterialParameterContainer.AST">
+            <summary>
+            Gets or sets the area/angular stiffness coefficient.
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxSoftBody.MaterialParameterContainer.VST">
+            <summary>
+            Gets or sets the volume stiffness coefficient.
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxSoftBody.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxTexture">
+            <summary>
+            テクスチャ情報
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxTexture.Path">
+            <summary>
+            テクスチャのパス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxTexture.ToonIndex">
+            <summary>
+            <para>共有Toonテクスチャ番号</para>
+            <para>共有Toonでない場合はnull</para>
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxTexture.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="path">テクスチャのパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxTexture.#ctor(System.Byte)">
+            <summary>
+            共有Toonテクスチャのコンストラクタ
+            </summary>
+            <param name="toonIndex">共有Toonテクスチャの番号[1～10]</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxTexture.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxVertex">
+            <summary>
+            頂点
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.Normal">
+            <summary>
+            法線
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.UV">
+            <summary>
+            テクスチャのUV座標
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.AdditonalUVs">
+            <summary>
+            追加UVの座標
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.WeightType">
+            <summary>
+            ウェイト変形方式
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.Weights">
+            <summary>
+            ウェイト値
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxVertex.SDEFParams">
+            <summary>
+            SDEFパラメータ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxVertex.SDEFParams.#ctor(System.Numerics.Vector3,System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            SDEFパラメータ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.SDEF">
+            <summary>
+            SDEFパラメータ
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxVertex.EdgeScale">
+            <summary>
+            エッジ倍率
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxVertex.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxWeightType">
+            <summary>
+            ウェイト変形方式
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxWeightType.BDEF1">
+            <summary>
+            BDEF1
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxWeightType.BDEF2">
+            <summary>
+            BDEF2
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxWeightType.BDEF4">
+            <summary>
+            BDEF4
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxWeightType.SDEF">
+            <summary>
+            SDEF
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Pmx.PmxWeightType.QDEF">
+            <summary>
+            QDEF
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Pmx.PmxWeight">
+            <summary>
+            ウェイト値
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxWeight.Bone">
+            <summary>
+            ボーン
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Pmx.PmxWeight.Value">
+            <summary>
+            ウェイト値
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxWeight.#ctor(MmdAssetMethods.Pmx.PmxBone,System.Single)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="bone">ボーン</param>
+            <param name="value">重み</param>
+        </member>
+        <member name="M:MmdAssetMethods.Pmx.PmxWeight.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.IO.VmdFileReader">
+            <summary>
+            VMD ファイル読込
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.IO.VmdFileReader.Read(System.String,MmdAssetMethods.Vmd.VocaloidMotionData)">
+            <summary>
+            VMD ファイルの読込
+            </summary>
+            <param name="filePath">ファイルパス</param>
+            <param name="vmd">データ書込み先 VMD</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.IO.VmdFileReader.Read(System.IO.BinaryReader,MmdAssetMethods.Vmd.VocaloidMotionData)">
+            <summary>
+            VMD ファイルの読込
+            </summary>
+            <param name="reader">バイナリリーダー</param>
+            <param name="vmd">データ書込み先 VMD</param>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.IO.VmdFileWriter">
+            <summary>
+            VMD ファイルへの書き込みを行う静的クラス。
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.IO.VmdFileWriter.Write(System.String,MmdAssetMethods.Vmd.VocaloidMotionData)">
+            <summary>
+            指定されたパスに <see cref="T:MmdAssetMethods.Vmd.VocaloidMotionData"/> インスタンスを書き込みます。
+            </summary>
+            <param name="filePath">書き込み先のファイルパス</param>
+            <param name="vmd">書き込む <see cref="T:MmdAssetMethods.Vmd.VocaloidMotionData"/> オブジェクト</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.IO.VmdFileWriter.Write(System.IO.BinaryWriter,MmdAssetMethods.Vmd.VocaloidMotionData)">
+            <summary>
+            与えられた <see cref="T:System.IO.BinaryWriter"/> を用いて <see cref="T:MmdAssetMethods.Vmd.VocaloidMotionData"/> インスタンスを書き込みます。
+            </summary>
+            <param name="writer"><see cref="T:MmdAssetMethods.Vmd.VocaloidMotionData"/> データを書き込むための <see cref="T:System.IO.BinaryWriter"/> オブジェクト</param>
+            <param name="vmd">書き込む <see cref="T:MmdAssetMethods.Vmd.VocaloidMotionData"/> オブジェクト</param>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.IVmdFrame">
+            <summary>
+            フレームのインターフェイス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdFrame.Name">
+            <summary>
+            フレームの名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdFrame.Frame">
+            <summary>
+            フレームの時間
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdFrame.IsCameraType">
+            <summary>
+            カメラ系フレームか？
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdFrame.IsModelType">
+            <summary>
+            モデル系フレームか？
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.IVmdInterpolatable">
+            <summary>
+            補間曲線を持つデータであることを示すインターフェイス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.IVmdInterpolatable.InterpolationCurves">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdCameraFrame">
+            <summary>
+            カメラフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.Distance">
+            <summary>
+            距離
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.Position">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.Rotation">
+            <summary>
+            回転量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.ViewAngle">
+            <summary>
+            視野角
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.IsPerspectiveOff">
+            <summary>
+            パースの切/入 trueで切
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraFrame.InterpolationCurves">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdCameraFrame.#ctor(System.UInt32)">
+            <summary>
+            初期フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdCameraFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdCameraFrame.#ctor(System.UInt32,System.Collections.Generic.IDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve})">
+            <summary>
+            初期フレーム時間と補間曲線のディクショナリを指定して <see cref="T:MmdAssetMethods.Vmd.VmdCameraFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="frame">フレーム時間</param>
+            <param name="interpolationCurves">フレーム間の補間曲線のディクショナリ</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdCameraFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdCameraTypeFrame">
+            <summary>
+            カメラ系フレームの抽象クラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdCameraTypeFrame.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraTypeFrame.IsCameraType">
+            <summary>
+            カメラ系フレームか？
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdCameraTypeFrame.IsModelType">
+            <summary>
+            モデル系フレームか？
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdConstants">
+            <summary>
+            仕様によって定められた変数
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.HeaderString">
+            <summary>
+            VMDファイルのヘッダー文字列
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.HeaderLength">
+            <summary>
+            VMDファイルのヘッダー部の領域長
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.ModelNameLength">
+            <summary>
+            モデル名の領域長
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.BoneNameLength">
+            <summary>
+            ボーン名の領域長
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.MorphNameLength">
+            <summary>
+            モーフ名の領域長
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdConstants.IKNameLength">
+            <summary>
+            IK名の領域長
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdFrame">
+            <summary>
+            フレームの抽象クラス
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdFrame.Name">
+            <summary>
+            フレームの名前
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdFrame.Frame">
+            <summary>
+            フレームの時間
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdFrame.IsCameraType">
+            <summary>
+            カメラ系フレームか？
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdFrame.IsModelType">
+            <summary>
+            モデル系フレームか？
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdFrame.#ctor(System.String)">
+            <summary>
+            名前を指定して <see cref="T:MmdAssetMethods.Vmd.VmdFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="name">フレームの名前</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdFrame.CompareTo(MmdAssetMethods.Vmd.IVmdFrame)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdFrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Camera">
+            <summary>
+            カメラ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Light">
+            <summary>
+            照明
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Shadow">
+            <summary>
+            影
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Property">
+            <summary>
+            表示・IK
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Morph">
+            <summary>
+            モーフ
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdFrameKind.Motion">
+            <summary>
+            モーション
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdKind">
+            <summary>
+            VMDの種類
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdKind.Camera">
+            <summary>
+            カメラ系
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VmdKind.Model">
+            <summary>
+            モデル系
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdLightFrame">
+            <summary>
+            照明フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdLightFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdLightFrame.Color">
+            <summary>
+            照明色
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdLightFrame.Position">
+            <summary>
+            照明位置
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdLightFrame.#ctor(System.UInt32)">
+            <summary>
+            フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdLightFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdLightFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdModelTypeFrame">
+            <summary>
+            モデル系フレームの抽象クラス
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdModelTypeFrame.#ctor(System.String)">
+            <summary>
+            名前を指定して <see cref="T:MmdAssetMethods.Vmd.VmdModelTypeFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="name">モーフ名</param>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdModelTypeFrame.IsCameraType">
+            <summary>
+            カメラ系フレームか？
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdModelTypeFrame.IsModelType">
+            <summary>
+            モデル系フレームか？
+            </summary>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdMorphFrame">
+            <summary>
+            モーフフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMorphFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMorphFrame.Weight">
+            <summary>
+            モーフ適用係数
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdMorphFrame.#ctor(System.String,System.UInt32)">
+            <summary>
+            モーフ名と初期フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdMorphFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="name">モーフ名</param>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdMorphFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdMotionFrame">
+            <summary>
+            モーションフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMotionFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMotionFrame.Position">
+            <summary>
+            移動量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMotionFrame.Rotation">
+            <summary>
+            回転量
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdMotionFrame.InterpolationCurves">
+            <summary>
+            補間曲線
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdMotionFrame.#ctor(System.String,System.UInt32)">
+            <summary>
+            ボーン名と初期フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdMotionFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="name">ボーン名</param>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdMotionFrame.#ctor(System.String,System.UInt32,System.Collections.Generic.IDictionary{MmdAssetMethods.InterpolationItem,MmdAssetMethods.InterpolationCurve})">
+            <summary>
+            ボーン名、初期フレーム時間、補間曲線のディクショナリを指定して <see cref="T:MmdAssetMethods.Vmd.VmdMotionFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="name">ボーン名</param>
+            <param name="frame">フレーム時間</param>
+            <param name="interpolationCurves">フレーム間の補間曲線のディクショナリ</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdMotionFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdPropertyFrame">
+            <summary>
+            表示・IKフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdPropertyFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdPropertyFrame.IsVisible">
+            <summary>
+            表示/非表示
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdPropertyFrame.IKEnabled">
+            <summary>
+            IK有効/無効
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdPropertyFrame.#ctor(System.UInt32)">
+            <summary>
+            フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdPropertyFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdPropertyFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VmdShadowFrame">
+            <summary>
+            影フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdShadowFrame.FrameKind">
+            <summary>
+            フレームの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdShadowFrame.Mode">
+            <summary>
+            セルフ影モード
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VmdShadowFrame.Range">
+            <summary>
+            影範囲
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdShadowFrame.#ctor(System.UInt32)">
+            <summary>
+            フレーム時間を指定して <see cref="T:MmdAssetMethods.Vmd.VmdShadowFrame"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="frame">フレーム時間</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VmdShadowFrame.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:MmdAssetMethods.Vmd.VocaloidMotionData">
+            <summary>
+            VMDファイルの内部表現
+            </summary>
+        </member>
+        <member name="F:MmdAssetMethods.Vmd.VocaloidMotionData.CameraTypeVMDName">
+            <summary>
+            カメラVMDファイルのモデル名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.Header">
+            <summary>
+            ヘッダー
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.ModelName">
+            <summary>
+            モデル名
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.Kind">
+            <summary>
+            VMDの種類
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.CameraFrames">
+            <summary>
+            カメラフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.LightFrames">
+            <summary>
+            照明フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.ShadowFrames">
+            <summary>
+            セルフ影フレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.PropertyFrames">
+            <summary>
+            プロパティフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.MorphFrames">
+            <summary>
+            モーフフレーム
+            </summary>
+        </member>
+        <member name="P:MmdAssetMethods.Vmd.VocaloidMotionData.MotionFrames">
+            <summary>
+            モーションフレーム
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.#ctor(System.String)">
+            <summary>
+            ファイル読み込みコンストラクタ
+            </summary>
+            <param name="filePath">読み込むファイルのパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.Clear">
+            <summary>
+            内容の初期化
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.AddFrames(System.Collections.Generic.IEnumerable{MmdAssetMethods.Vmd.IVmdFrame})">
+            <summary>
+            フレームを追加する
+            </summary>
+            <param name="frames">追加するフレームのコレクション</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.AddFrame(MmdAssetMethods.Vmd.IVmdFrame)">
+            <summary>
+            フレームを追加する
+            </summary>
+            <param name="frame">追加するフレーム</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.GetAllFrames">
+            <summary>
+            <para>全てのフレームコレクションを結合したものを返す</para>
+            </summary>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.Read(System.String)">
+            <summary>
+            ファイルから読込
+            </summary>
+            <param name="filePath">読み込むファイルのパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.Write(System.String)">
+            <summary>
+            ファイルに書き出し
+            </summary>
+            <param name="filePath">書き出すファイルのパス</param>
+        </member>
+        <member name="M:MmdAssetMethods.Vmd.VocaloidMotionData.GetEnumerator">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
